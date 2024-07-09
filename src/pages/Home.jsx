@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Navbar from "../components/Layout/Navbar";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Button from "../components/Elements/Button/Button";
@@ -18,12 +19,13 @@ export default function Home() {
       <Helmet>
         <title>Ayam Tuwajuh</title>
       </Helmet>
+      <Navbar />
       <div className="w-full min-h-screen bg-ayam3 bg-gray-400 bg-blend-multiply bg-center bg-cover">
         <div
           className=" min-h-screen flex flex-col justify-center items-center text-center gap-4"
           data-aos="fade-down"
         >
-          <h1 className="-mt-16 font-lexend px-2 text-3xl md:text-4xl lg:text-5xl text-white font-semibold uppercase">
+          <h1 className="font-jakarta px-2 text-3xl md:text-4xl lg:text-5xl text-white font-semibold uppercase">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -38,23 +40,20 @@ export default function Home() {
               }}
             />
           </h1>
-          <h2 className="font-encode text-lg md:text-xl lg:text-3xl text-white font-medium">
+          <h2 className="font-jakarta text-lg md:text-xl lg:text-3xl text-white font-medium">
             Rasakan Kenikmatan Ayam Bakar Khas Yogyakarta
           </h2>
-          <h3 className="font-lexend text-base md:text-lg lg:text-2xl text-white font-light">
+          <h3 className="font-jakarta text-base md:text-lg lg:text-2xl text-white font-light">
             Pesan Sekarang dan dapatkan banyak Promo!
           </h3>
           <div>
             <Link to={"/promo"}>
-              <Button
-                text="Lihat Promo"
-                className="font-poppins text-white font-semibold"
-              />
+              <Button text="Lihat Promo" className="text-white" />
             </Link>
           </div>
         </div>
         <div
-          className="-mt-60 flex flex-col px-7 md:px-12 gap-4"
+          className="-mt-36 flex flex-col px-7 md:px-12 gap-4"
           data-aos="fade-up"
         >
           <a

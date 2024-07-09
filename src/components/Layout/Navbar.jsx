@@ -40,7 +40,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white font-dmsans fixed w-full h-screen">
+    <header className="bg-white font-jakarta fixed top-0 z-50 w-full">
       <div className="container duration-500 mx-auto py-6 flex items-center justify-between xxs:px-0 xs:px-6">
         <div className="flex gap-4 px-0">
           <GiChickenOven className="w-9 h-9 text-[#c05c19]" />

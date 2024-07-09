@@ -1,37 +1,11 @@
 import { React, useEffect } from "react";
+import Navbar from "../components/Layout/Navbar";
 import { Helmet } from "react-helmet";
-import Map from "../components/Fragments/Map";
-import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
-import { MdOutlineLocationOn } from "react-icons/md";
+import Call from "../../src/assets/images/call.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
-const social = [
-  {
-    id: 1,
-    name: "Komp. Tirtawening No.127",
-    logo: <MdOutlineLocationOn className="text-[#c05c19] hover:text-[#f08741] w-6 h-6 md:w-8 md:h-8" />,
-    link: "https://maps.app.goo.gl/EpbL9UmAFF1Z6MuY8",
-  },
-  {
-    id: 2,
-    name: "0858-6040-8156",
-    logo: <FaWhatsapp className="text-green-500 hover:text-green-400 w-6 h-6 md:w-8 md:h-8" />,
-    link: "https://wa.me/085860408156?",
-  },
-  {
-    id: 3,
-    name: "@ayamtuwajuh",
-    logo: <FaInstagram className="text-pink-600 hover:text-pink-500 w-6 h-6 md:w-8 md:h-8" />,
-    link: "https://www.instagram.com/ayamtuwajuh/",
-  },
-  {
-    id: 4,
-    name: "Muhammad Iqbal Mudzaki",
-    logo: <FaFacebook className="text-blue-700 hover:text-blue-600 w-6 h-6 md:w-8 md:h-8" />,
-    link: "https://www.facebook.com/muhammad.mudzaki/",
-  },
-]
+import Button from "../components/Elements/Button/Button";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   useEffect(() => {
@@ -40,38 +14,51 @@ export default function Contact() {
     });
   }, []);
 
-  const position = [-6.916074, 107.712059]; 
-  const address = 'Ayam Tuwajuh'; 
+  const linkWa = "https://wa.me/+6285860408156";
 
   return (
     <>
       <Helmet>
         <title>Contact - Ayam Tuwajuh</title>
       </Helmet>
-      <div
-        className="flex flex-col items-center justify-center"
-        data-aos="fade-right"
-      >
-        <h1 className="text-xl md:text-2xl xl:text-3xl font-bold font-lexend">
-          Contact
-        </h1>
-        <div className="gap-2 flex flex-col lg:flex-row lg:gap-10 pt-8">
-          {social.map((socials) => (
-            <div key={socials.id}>
-              <a
-                className="flex font-encode font-medium items-center justify-center gap-2"
-                href={socials.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {socials.logo} {socials.name}
-              </a>
-            </div>
-          ))}
+      <Navbar />
+      <div className="font-jakarta pt-20">
+        <div className="flex justify-center text-3xl font-bold py-1 md:py-6">
+          <h2>Contact</h2>
         </div>
-      </div>
-      <div className="flex items-center justify-center pt-6" data-aos="fade-up">
-        <Map position={position} address={address} />
+        <div className="px-4 md:px-8 lg:px-14 py-4 flex flex-col md:flex-row gap-6">
+          <div className="w-full md:w-[45%] flex items-center">
+            <img
+              src={Call}
+              alt="Call"
+              data-aos="fade-right"
+              className="rounded-lg"
+            />
+          </div>
+          <div className="w-full md:w-[55%] md:px-8 flex flex-col justify-center">
+            <div className="flex flex-col gap-1 text-2xl md:text-3xl">
+              <h3 className="font-semibold">Kontak Kami</h3>
+              <h4 className="font-medium">
+                Kirimi kami <span className="text-primary">Pesan.</span>
+              </h4>
+            </div>
+            <div className="py-4">
+              <p className="text-justify font-medium text-sm md:text-base">
+                Terima kasih telah mengunjungi situs web kami! Di Ayam Tuwajuh,
+                kami berkomitmen untuk memberikan layanan pelanggan terbaik.
+                Jika Anda memiliki pertanyaan, umpan balik, atau membutuhkan
+                bantuan, jangan ragu untuk menghubungi kami melalui salah satu
+                metode di bawah ini.
+              </p>
+              <Link to={linkWa} target="_blank">
+                <Button
+                  text="Hubungi Kami"
+                  className="mt-4 md:mt-6 text-white"
+                ></Button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

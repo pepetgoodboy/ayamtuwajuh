@@ -21,6 +21,7 @@ export default {
         kanit: "Kanit",
         lexend: "Lexend Deca",
         encode: "Encode Sans",
+        jakarta: "Plus Jakarta Sans",
       },
     },
     screens: {
